@@ -14,14 +14,16 @@ private:
 		return true;
 	}
 public: 
-    InputInterpreter() {
-        return;
+    InputInterpreter(Communicator c) {
+        this.communicator = c;
     }
     bool input(string params) {
     	if (!areValidParameters(params)) {
     		return false;
     	}
     	
+        communicator.notify("InputInterpreter" + params);
+
     	return true;
     }
 };

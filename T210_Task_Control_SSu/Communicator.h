@@ -15,16 +15,52 @@ private:
 	Generator generator;
 	InputInterpreter inputInterpreter;
 	FeedbackResolver feedbackResolver;
-	void handleScheduler(String message);
-	void handleExecutor(String message);
-	void handleGenerator(String message);
-	void handleInputInterpreter(String message);
-	void handleFeedbackResolver(String message);
+
+	void handleScheduler(string message) {
+
+	}
+
+	void handleExecutor(string message) {
+		
+	}
+
+	void handleGenerator(string message) {
+
+	}
+
+	void handleInputInterpreter(string message) {
+
+	}
+
+	void handleFeedbackResolver(string message) {
+
+	}
+
+
 public:
 	Communicator(void) {
-		return;
+		this.scheduler = new Scheduler();
+		this.executor = new Executor();
+		this.generator = new Generator();
+		this.inputInterpreter = new InputInterpreter();
+		this.feedbackResolver = new FeedbackResolver();
 	}
 	void notify(message) {
-		return;
+		char *first = strtok(message, " ");
+		size_t spacePos = message.find(" ");
+		string msg = message.substr(spacePos + 1);
+		if (first == "Scheduler") {
+			handleScheduler(msg);
+		} else if (first == "Executor") {
+			handleExecutor(msg);
+		} else if (first == "Generator") {
+			handleGenerator(msg);
+		} else if (first == "InputInterpreter") {
+			handleInputInterpreter(msg);
+		} else if (first == "FeedbackResolver") {
+			handleFeedbackResolver(msg);
+		} else {
+			return;
+		}
 	}
 }; 

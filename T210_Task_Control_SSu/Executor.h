@@ -13,15 +13,21 @@ private:
 	list<Task> blockQ;
     unordered_map<int, bool> resourceTable;
     vector<Task> executingList;
+    
     void executeTask(int taskID) {
         return;
     }
+    
     void finishTask(int taskID) {
-        return;
+        this.communicator.notify("Executor Scheduler maximumTaskDispatch");
+    }
+
+    void freeResources(int taskID) {
+
     }
 public:
-    Executor() {
-        return;
+    Executor(Communicator c) {
+        this.communicator = c;
     }
     void run(void) {
         return;

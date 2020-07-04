@@ -14,9 +14,9 @@ private:
 		return true;
 	}
 public: 
-	Generator() {
-		return;
-	}
+	Generator(Communicator c) {
+        this.communicator = c;
+    }
     Task createTask(int ID, string params) {
         return NULL;
     }

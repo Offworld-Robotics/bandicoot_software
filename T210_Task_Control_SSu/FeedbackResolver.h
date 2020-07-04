@@ -16,9 +16,9 @@ class FeedbackResolver {
 private:
 	Communicator communicator;
 public: 
-	FeedbackResolver() {
-		return;
-	}
+	FeedbackResolver(Communicator c) {
+        this.communicator = c;
+    }
     void feedback(Action action, string feedbackData) {
         return;
     }
