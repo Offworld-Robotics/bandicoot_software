@@ -16,13 +16,13 @@ private:
 	double priority;
     int ID;
 	int state;
-    int currentActionID;
+    int currentActionIndex;
 	bool areValidParameters(string params) {
 		return true;
 	}
 public:
     Task() {
-        return;
+        currentActionIndex = 0;
     }
     bool input(string params) {
     	if (!areValidParameters(params)) {
@@ -30,6 +30,14 @@ public:
     	}
     	
     	return true;
+    }
+
+    int getID(void) {
+        return ID;
+    }
+
+    void execute(void) {
+        actionList[currentActionIndex].execute();
     }
 };
 

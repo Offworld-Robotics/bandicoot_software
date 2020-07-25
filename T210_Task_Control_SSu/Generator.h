@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unordered_map>
-#include "Communicator.h"
+#include "Controller.h"
 #include "Task.h"
 
 #ifndef GENERATOR_H
@@ -8,15 +8,18 @@
 
 class Generator { 
 private:
-	Communicator communicator;
+	Controller controller;
+	// todo: define task table
 	unordered_map<int, Task> taskTable;
+
 	bool areValidParameters(string params) {
 		return true;
 	}
 public: 
-	Generator(Communicator c) {
-        this.communicator = c;
+	Generator(Controller c) {
+        this.controller = c;
     }
+    
     Task createTask(int ID, string params) {
         return NULL;
     }

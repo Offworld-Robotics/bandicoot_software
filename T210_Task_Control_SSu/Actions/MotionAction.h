@@ -9,7 +9,7 @@
 #ifndef MOTION_H
 #define MOTION_H
 
-class MotionAction : public Action { 
+class MotionAction : public Action {
     public:
     	MotionAction() {
     		return;

@@ -1,30 +1,23 @@
 #include <iostream>
 #include <unordered_map>
-#include <tasks.>
-#include "Communicator.h"
+#include <boost/algorithm/string.hpp>
+
+#include "Controller.h"
 
 #ifndef INPUT_H
 #define INPUT_H
 
 class InputInterpreter { 
 private:
-	Communicator communicator;
-	unordered_map<string, vector<string>> inputTable;
-	bool areValidParameters(string params) {
-		return true;
-	}
+	Controller controller;
 public: 
-    InputInterpreter(Communicator c) {
-        this.communicator = c;
+    InputInterpreter(Controller c) {
+        this.controller = c;
     }
-    bool input(string params) {
-    	if (!areValidParameters(params)) {
-    		return false;
-    	}
-    	
-        communicator.notify("InputInterpreter" + params);
-
-    	return true;
+    vector<string> input(string params) {
+        vector<string> result;
+    	boost::split(results, params, [](char c){return c == ' ';});
+        return result;
     }
 };
 
