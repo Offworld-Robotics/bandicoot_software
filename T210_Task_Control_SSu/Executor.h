@@ -10,7 +10,6 @@
 class Executor {
 private:
 	Controller controller;
-    unordered_map<int, bool> resourceTable;
     vector<Task> executingList;
     list<Task> blockQ;
     bool isRunning;
@@ -22,7 +21,7 @@ private:
     void finishTask(Task task) {
         freeResources(task);
         for (auto it = v.begin(); it != v.end(); ++it) {
-            if (*it == task){
+            if (*it == task) {
                 v.erase(it);
                 return;
             }
@@ -41,7 +40,6 @@ public:
         controller = c;
         isRunning = false;
         blockQ = new list<Task>;
-
     }
     
     void run(void) {
@@ -93,6 +91,10 @@ public:
     void addTask(Task task) {
         if (canExecuteTask(task)) {
             executingList.push_back(task);
+            vector<int> actuatorIDs = task.getActuatorIDs();
+            for (auto &ID : actuatorIDs) {
+                resourceTable[ID] = true;
+            }
         }
     }
 

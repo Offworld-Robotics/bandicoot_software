@@ -6,12 +6,12 @@
 
 #endif 
 
-#ifndef SENSOR_H
-#define SENSOR_H
+#ifndef ARM_H
+#define ARM_H
 
-class SensorAction : public Action { 
+class ArmAction : public Action { 
     public: 
-    	SensorAction() {
+    	ArmAction() {
     		return;
     	}
         void execute(void) {

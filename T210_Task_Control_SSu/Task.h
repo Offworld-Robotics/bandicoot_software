@@ -17,11 +17,10 @@ private:
     int ID;
 	int state;
     int currentActionIndex;
-	bool areValidParameters(string params) {
-		return true;
-	}
+    Executor executor;
 public:
-    Task() {
+    Task(Executor executor) {
+        this.executor = executor;
         currentActionIndex = 0;
     }
     bool input(string params) {
@@ -38,6 +37,22 @@ public:
 
     void execute(void) {
         actionList[currentActionIndex].execute();
+    }
+
+    void pause(void) {
+        actionList[currentActionIndex].pause();
+    }
+
+    void reprioritise(double priority) {
+        this.priority = priority;
+    }
+
+    void completeAction(Action action) {
+        currentActionIndex++;
+        if (currentActionIndex == actionList.size()) {
+            executor.finishTask(this);
+        }
+        execute();
     }
 };
 

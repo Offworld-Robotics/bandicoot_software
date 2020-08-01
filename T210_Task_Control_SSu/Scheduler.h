@@ -11,8 +11,8 @@ using namespace std;
 class Scheduler {
 private:
 	Controller controller;
-    // linked list of tasks, ordered by priority, where the highest
-    // priority task is at the front of the linked list
+    // linked list of tasks, where the front of the linked list
+    // has the task that is next in line to be executed
 	list<Task> *readyQ;
 public: 
     Scheduler(Controller c) {
@@ -38,18 +38,11 @@ public:
     void addTask(Task task) {
         if (*readyQ.isEmpty()) {
             *readyQ.push_front(task);
+            dispatchTask();
             return;
         }
 
-        auto it = *readyQ.begin()
-        for (; it != *readyQ.end(); ++it) {
-            auto currTask = *it;
-            if (currTask.getPriority() < task.getPriority()) {
-                break;
-            }
-        }
-
-        *readyQ.emplace(it, task);
+        *readyQ.push_back(task);
     }
 
     Task removeTask(int taskID) {
@@ -73,11 +66,6 @@ public:
             addTask(t);
             return false;
         }
-    }
-    
-    // dispatches as many tasks as possible
-    void maximumDispatchTask(void) {
-        while (dispatchTask());
     }
     
     Task popTask(void) {
