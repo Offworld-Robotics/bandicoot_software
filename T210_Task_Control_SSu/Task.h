@@ -13,7 +13,6 @@
 class Task { 
 private:
     vector<Action> actionList;
-	double priority;
     int ID;
 	int state;
     int currentActionIndex;
@@ -41,10 +40,6 @@ public:
 
     void pause(void) {
         actionList[currentActionIndex].pause();
-    }
-
-    void reprioritise(double priority) {
-        this.priority = priority;
     }
 
     void completeAction(Action action) {

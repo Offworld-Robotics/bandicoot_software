@@ -13,22 +13,21 @@ private:
 	Controller controller;
     // linked list of tasks, where the front of the linked list
     // has the task that is next in line to be executed
-	list<Task> *readyQ;
+	list<Task> *waitQ;
 public: 
     Scheduler(Controller c) {
         controller = c;
-        readyQ = new list<Task>;
+        waitQ = new list<Task>;
     }
 
     Task getTask(int taskID) {
-        if (*readyQ.isEmpty()) {
+        if (*waitQ.isEmpty()) {
             return NULL;
         }
-        
-        for (auto it = *readyQ.begin(); it != *readyQ.end(); ++it) {
-            auto currTask = *it;
-            if (currTask.getID() == taskID) {
-                return currTask;
+
+        for (auto task : *waitQ) {
+            if (task.getID() == taskID) {
+                return task;
             }
         }
 
@@ -36,20 +35,20 @@ public:
     }
     
     void addTask(Task task) {
-        if (*readyQ.isEmpty()) {
-            *readyQ.push_front(task);
+        if (*waitQ.isEmpty()) {
+            *waitQ.push_front(task);
             dispatchTask();
             return;
         }
 
-        *readyQ.push_back(task);
+        *waitQ.push_back(task);
     }
 
     Task removeTask(int taskID) {
         Task t = getTask(taskID);
         
         if (t != NULL) {
-            *readyQ.remove(t);
+            *waitQ.remove(t);
         }
 
         return t;
@@ -58,23 +57,23 @@ public:
     // sends the task at the front of the ready queue to run in the executor
     // returns whether a task was dispatched or not
     bool dispatchTask(void) {
-        Task t = popTask();
+        Task t = *waitQ.front();
         if (t != NULL && controller.executor.canExecuteTask(t)) {
             controller.executor.addTask(t);
+            *waitQ.pop_front();
             return true;
         } else {
-            addTask(t);
             return false;
         }
     }
     
     Task popTask(void) {
-    	if (*readyQ.isEmpty()) {
+    	if (*waitQ.isEmpty()) {
             return NULL;
         }
 
-        Task t = *readyQ.front();
-        *readyQ.pop_front();
+        Task t = *waitQ.front();
+        *waitQ.pop_front();
         return t;
     }
 };

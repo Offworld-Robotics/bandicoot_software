@@ -10,16 +10,20 @@
 #define MOTION_H
 
 class MotionAction : public Action {
-    public:
-    	MotionAction() {
-    		return;
-    	}
-        void execute(void) {
-        	return;
-        }
-        void pause(void) {
-        	return;
-        }
+private:
+    double destX;
+    double destY;
+public:
+	MotionAction(double x, double y) {
+        this.destX = x;
+		this.destY = y;
+	}
+    void execute(void) {
+    	return;
+    }
+    void pause(void) {
+    	return;
+    }
 };
 
 #endif 
