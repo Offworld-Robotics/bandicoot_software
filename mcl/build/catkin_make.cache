@@ -1,0 +1,2 @@
+skid_steer_robot
+-DCATKIN_DEVEL_PREFIX=/home/raghav/bandicoot_software/mcl/devel -DCMAKE_INSTALL_PREFIX=/home/raghav/bandicoot_software/mcl/install -G Unix Makefiles

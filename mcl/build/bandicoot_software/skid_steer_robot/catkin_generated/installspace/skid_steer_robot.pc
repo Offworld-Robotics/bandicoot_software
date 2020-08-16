@@ -1,0 +1,8 @@
+prefix=/home/raghav/mcl/install
+
+Name: skid_steer_robot
+Description: Description of skid_steer_robot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
