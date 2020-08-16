@@ -1,0 +1,7 @@
+image: /home/raghav/motion_controller/catkin_ws/src/owr_rover_navigation_pkg/saved_maps/world01_map.pgm
+resolution: 0.050000
+origin: [-20.200000, -12.200000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
