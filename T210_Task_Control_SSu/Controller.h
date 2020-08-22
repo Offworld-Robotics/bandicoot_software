@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdlib.h> 
 #include <map>
+#include <vector>
 
 #include "Scheduler.h"
 #include "Executor.h"
 #include "Generator.h"
 #include "InputInterpreter.h"
-
 
 class Controller {
 private:
@@ -22,7 +22,8 @@ public:
 		this.inputInterpreter = new InputInterpreter();
 	}
 
-	void handleInput(vector<string> params) {
-		
+	void handleInput(string params) {
+		// delegate request to correct subcomponents
+		// what am I doing with my life
 	}
 }; 

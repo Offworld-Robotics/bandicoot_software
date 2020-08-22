@@ -15,8 +15,14 @@ public:
     }
     
     // move x y 
-    void createTask(string params) {
-        
+    void createTask(vector<string> params) {
+        Task t = new Task();
+        for (auto s : params) {
+        	// parse
+        	Action a = new MotionAction(0, 0/*params*/);
+        	t.addAction(a);
+        }
+        controller.scheduler.addTask(t);
     }
 };
 

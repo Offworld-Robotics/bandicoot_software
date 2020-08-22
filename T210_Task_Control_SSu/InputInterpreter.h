@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unordered_map>
-#include <boost/algorithm/string.hpp>
 
 #include "Controller.h"
 
@@ -14,10 +13,10 @@ public:
     InputInterpreter(Controller c) {
         this.controller = c;
     }
-    vector<string> input(string params) {
-        vector<string> result;
-    	boost::split(results, params, [](char c){return c == ' ';});
-        return result;
+    void input(void) {
+    	string params;
+    	cin >> params;
+        controller.handleInput(params);
     }
 };
 

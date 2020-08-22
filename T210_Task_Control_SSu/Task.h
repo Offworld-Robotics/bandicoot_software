@@ -2,8 +2,8 @@
 
 #ifndef ACT_H
 
-#include "Action/MotionAction.h"
-#include "Action/SensorAction.h"
+#include "Actions/MotionAction.h"
+#include "Actions/SensorAction.h"
 
 #endif
 
@@ -13,41 +13,25 @@
 class Task { 
 private:
     vector<Action> actionList;
-    int ID;
-	int state;
     int currentActionIndex;
-    Executor executor;
 public:
-    Task(Executor executor) {
-        this.executor = executor;
+    Task() {
         currentActionIndex = 0;
     }
-    bool input(string params) {
-    	if (!areValidParameters(params)) {
-    		return false;
-    	}
-    	
-    	return true;
+
+    void addAction(Action a) {
+        actionList.push_back(a);
     }
 
-    int getID(void) {
-        return ID;
+    bool hasNext(void) {
+        return currentActionIndex < actionList.size();
     }
 
-    void execute(void) {
-        actionList[currentActionIndex].execute();
-    }
-
-    void pause(void) {
-        actionList[currentActionIndex].pause();
-    }
-
-    void completeAction(Action action) {
-        currentActionIndex++;
-        if (currentActionIndex == actionList.size()) {
-            executor.finishTask(this);
+    Action getNext(void) {
+        if (!hasNext()) {
+            return NULL;
         }
-        execute();
+        return actionList[++currentActionIndex];
     }
 };
 
