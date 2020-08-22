@@ -79,7 +79,7 @@ int main(int argc, char** argv){
   //The robot will move in the reference of the map frame or the link_chassis frame
   //The word link_chassis -> is actually defined in the robot urdf file. This will not always be the case for all robots.
 
-  move_base_msgs::MoveBaseGoal goal = robot_set_goal(0,7,1,"map");
+  move_base_msgs::MoveBaseGoal goal = robot_set_goal(0,6,1,"map");
 
   // Sending the goal now, and having three call back functions, all defined above.
   ac.sendGoal(goal, &doneCb, &activeCb, &feedbackCb);
