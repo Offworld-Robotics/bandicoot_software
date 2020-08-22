@@ -75,12 +75,12 @@ $ roslaunch skid_steer_robot navigation.launch
 ```
 This should have now started pre-configured RVIZ window
 
-###### Testing on RVIZ
+### Testing on RVIZ
 
 1. In Rviz, click on the 2D Nav Goal in the top menu. 
 2. Click on the Rviz map where you want the robot to navigate too. 
 
-###### Testing using bash
+### Testing using bash
 In a new terminal, run a program to send a goal position to the robot.
 ```sh
 $ cd ~/catkin_ws
@@ -89,8 +89,8 @@ $ rosrun skid_steer_robot goal
 ```
 In the src/simple_motion_controller.cpp file line 82, you will be able to modify the goal position and change the frame etc.
 
-##### Additional: 
-###### How to point and click on rviz map and output the position
+## Additional: 
+### How to point and click on rviz map and output the position
 1. Open a new terminal and type:
 ```sh
  rostopic echo /clicked_point
@@ -99,7 +99,7 @@ In the src/simple_motion_controller.cpp file line 82, you will be able to modify
 3. Click anywhere on the map.
 4. The result should be instantaneously displayed in the terminal where we have echoed /clicked_point
 
-###### Getting Started on Learning the Theory
+### Getting Started on Learning the Theory
 Go through the following resources in order and you will understand the basics behind how everything works. A detailed pdf report outlining everything is currently in the works. All of these resources will take a week or two to get through. The first two youtube links are very hands on, and are very highly recommended!
 
 1. Exploring ROS using a 2 wheeled Robot https://www.youtube.com/playlist?list=PLK0b4e05LnzY2I4sXWTOA4_82cMh6tL-5
