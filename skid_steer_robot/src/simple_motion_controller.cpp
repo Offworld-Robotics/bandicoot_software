@@ -78,7 +78,7 @@ int main(int argc, char** argv){
   //The string here: the 4th argument can either be the "map" or the "link_chassis"
   //The robot will move in the reference of the map frame or the link_chassis frame
   //The word link_chassis -> is actually defined in the robot urdf file. This will not always be the case for all robots.
-
+  //First argument is x, second argument is y, third argument is theta, fourth argument is goal frame -> either "map" or "link_chassi"
   move_base_msgs::MoveBaseGoal goal = robot_set_goal(0,6,1,"map");
 
   // Sending the goal now, and having three call back functions, all defined above.
