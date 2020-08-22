@@ -16,7 +16,7 @@ TrajectoryPlannerROS:
 
 EBandPlannerROS:
     # Common Parameters
-    xy_goal_tolerance: 0.15  # Distance tolerance for reaching the goal pose
+    xy_goal_tolerance: 0.05  # Distance tolerance for reaching the goal pose
     yaw_goal_tolerance: 0.13  # Orientation tolerance for reaching the desired goal pose
     rot_stopped_vel: 0.05  # Angular velocity lower bound that determines if the robot should stop to avoid limit-cycles or locks
     trans_stopped_vel: 0.05  # Linear velocity lower bound that determines if the robot should stop to avoid limit-cycles or locks
@@ -32,10 +32,10 @@ EBandPlannerROS:
     k_prop: 1.0  # Proportional gain of the PID controller
     k_damp: 3.5  # Damping gain of the PID controller
     Ctrl_Rate: 50  # Control rate
-    max_translational_acceleration: 2.5  # Maximum linear acceleration
-    max_rotational_acceleration: 1.5  # Maximum angular acceleration
+    max_translational_acceleration: 0.5  # Maximum linear acceleration
+    max_rotational_acceleration: 1.0  # Maximum angular acceleration
     differential_drive: true  # Denotes whether to use the differential drive mode
-    max_acceleration: 2.5  # Maximum allowable acceleration
+    max_acceleration: 0.5  # Maximum allowable acceleration
     
     
       

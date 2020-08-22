@@ -813,6 +813,21 @@ trajectory_msgs_generate_messages_eus/fast:
 .PHONY : trajectory_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
+skid_steer_robot/CMakeFiles/goal.dir/rule:
+	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f CMakeFiles/Makefile2 skid_steer_robot/CMakeFiles/goal.dir/rule
+.PHONY : skid_steer_robot/CMakeFiles/goal.dir/rule
+
+# Convenience name for target.
+goal: skid_steer_robot/CMakeFiles/goal.dir/rule
+
+.PHONY : goal
+
+# fast build rule for target.
+goal/fast:
+	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f skid_steer_robot/CMakeFiles/goal.dir/build.make skid_steer_robot/CMakeFiles/goal.dir/build
+.PHONY : goal/fast
+
+# Convenience name for target.
 skid_steer_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
 	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f CMakeFiles/Makefile2 skid_steer_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
 .PHONY : skid_steer_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
@@ -1487,6 +1502,33 @@ visualization_msgs_generate_messages_cpp/fast:
 	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f skid_steer_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make skid_steer_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
 .PHONY : visualization_msgs_generate_messages_cpp/fast
 
+src/simple_motion_controller.o: src/simple_motion_controller.cpp.o
+
+.PHONY : src/simple_motion_controller.o
+
+# target to build an object file
+src/simple_motion_controller.cpp.o:
+	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f skid_steer_robot/CMakeFiles/goal.dir/build.make skid_steer_robot/CMakeFiles/goal.dir/src/simple_motion_controller.cpp.o
+.PHONY : src/simple_motion_controller.cpp.o
+
+src/simple_motion_controller.i: src/simple_motion_controller.cpp.i
+
+.PHONY : src/simple_motion_controller.i
+
+# target to preprocess a source file
+src/simple_motion_controller.cpp.i:
+	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f skid_steer_robot/CMakeFiles/goal.dir/build.make skid_steer_robot/CMakeFiles/goal.dir/src/simple_motion_controller.cpp.i
+.PHONY : src/simple_motion_controller.cpp.i
+
+src/simple_motion_controller.s: src/simple_motion_controller.cpp.s
+
+.PHONY : src/simple_motion_controller.s
+
+# target to generate assembly for a file
+src/simple_motion_controller.cpp.s:
+	cd /home/raghav/bandicoot_software/mcl/build && $(MAKE) -f skid_steer_robot/CMakeFiles/goal.dir/build.make skid_steer_robot/CMakeFiles/goal.dir/src/simple_motion_controller.cpp.s
+.PHONY : src/simple_motion_controller.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1542,6 +1584,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... goal"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... move_base_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_py"
@@ -1588,6 +1631,9 @@ help:
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... src/simple_motion_controller.o"
+	@echo "... src/simple_motion_controller.i"
+	@echo "... src/simple_motion_controller.s"
 .PHONY : help
 
 

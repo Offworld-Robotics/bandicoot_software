@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   gmapping_pkg
   move_base
+  move_base_msgs
   roscpp
   rviz
   sensor_msgs
@@ -19,7 +20,11 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   urdf
   xacro
+  actionlib_msgs
+  actionlib
 )
+
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -143,6 +148,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/skid_steer_robot_node.cpp)
 
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -212,3 +218,8 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+add_executable(goal src/simple_motion_controller.cpp)
+add_dependencies(goal ${catkin_EXPORTED_TARGETS})
+target_link_libraries(goal ${catkin_LIBRARIES})

@@ -844,6 +844,19 @@ trajectory_msgs_generate_messages_eus/fast:
 .PHONY : trajectory_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named goal
+
+# Build rule for target.
+goal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 goal
+.PHONY : goal
+
+# fast build rule for target.
+goal/fast:
+	$(MAKE) -f skid_steer_robot/CMakeFiles/goal.dir/build.make skid_steer_robot/CMakeFiles/goal.dir/build
+.PHONY : goal/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_cpp
 
 # Build rule for target.
@@ -1493,6 +1506,7 @@ help:
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... goal"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... move_base_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_py"

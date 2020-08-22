@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<!-- To use AMCL with Move_base node, you need to provide amcl with a map.
+To improve the accuracy of the amcl, you need to have a good map, and a lot of particles for the robot to estimate itself.-->
 <launch>
   <master auto="start"/>
 

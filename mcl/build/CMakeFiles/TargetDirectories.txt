@@ -84,6 +84,7 @@
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/rebuild_cache.dir
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/actionlib_generate_messages_cpp.dir
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/trajectory_msgs_generate_messages_eus.dir
+/home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/goal.dir
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir
 /home/raghav/bandicoot_software/mcl/build/skid_steer_robot/CMakeFiles/roscpp_generate_messages_py.dir
