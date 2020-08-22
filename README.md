@@ -89,8 +89,59 @@ $ rosrun skid_steer_robot goal
 ```
 In the src/simple_motion_controller.cpp file line 82, you will be able to modify the goal position and change the frame etc.
 
+## Trying out AMCL
+The amcl + move_base configuration requires that a map be given to it to function properly. At the moment the map of world01 is given to it, and the map itself is store in the map folder.
+
+Launch this world
+```sh
+$ cd ~/catkin_ws
+$ roslaunch skid_steer_robot world.launch
+```
+In a new terminal, spawn the robot using the 'spawn.launch' file.
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ roslaunch skid_steer_robot spawn.launch
+```
+Your robot should now have sucessfully spawned inside the world.
+
+In a new terminal, start the amcl code using the 'amcl.launch' file.
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ roslaunch skid_steer_robot amcl.launch
+```
+This should have now started pre-configured RVIZ window with amcl instead of gmapping
+
+### To create a new map:
+1. Launch a world
+2. Spawn the robot inside the world
+3. In a new terminal, launch "gmapping.launch"
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ roslaunch skid_steer_robot gmapping.launch
+```
+4. Drive your robot around the world. You may need to install the [teleop-twist-keyboard package](http://wiki.ros.org/teleop_twist_keyboard)
+```sh
+sudo apt-get install ros-melodic-teleop-twist-keyboard
+```
+5. Launch the teleop-twist-keyboard code. Instructions on how to control the robot with your keyboard will pop up
+```sh
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+6. Once you are happy with the map that you have created, you need to save the map:
+```sh
+rosrun map_server map_saver -f ~/skid_steer_robot/maps/map_name
+```
+7. In the amcl.launch file, change the map location on line 9 of the code.
+8. Now catkin_build, launch your desired world, spawn your robot and start the amcl code!
+
+
+
 ## Additional: 
 ### How to point and click on rviz map and output the position
+This will be helpful when getting the robot to go to a position on the map, via the simple_motion_controller code to ensure that your position is a valid location!
 1. Open a new terminal and type:
 ```sh
  rostopic echo /clicked_point
@@ -102,7 +153,7 @@ In the src/simple_motion_controller.cpp file line 82, you will be able to modify
 ### Getting Started on Learning the Theory
 Go through the following resources in order and you will understand the basics behind how everything works. A detailed pdf report outlining everything is currently in the works. All of these resources will take a week or two to get through. The first two youtube links are very hands on, and are very highly recommended!
 
-1. [Exploring ROS using a 2 wheeled Robot](https://www.youtube.com/playlist?)list=PLK0b4e05LnzY2I4sXWTOA4_82cMh6tL-5
+1. [Exploring ROS using a 2 wheeled Robot](https://www.youtube.com/playlist?list=PLK0b4e05LnzY2I4sXWTOA4_82cMh6tL-5)
 2. [ROS Navigation in 5 days](https://www.youtube.com/playlist?list=PLiiw0aSVHcAkF26qR6Q7x6RlLAL6-vuF3) 
 3. [A website which goes through implementing such a navigation stack from scratch](http://moorerobots.com/blog)
 4. [ROS Localisation and Navigation with a Skid-Steer Robot](https://www.haidynmcleod.com/ros-skid-steer-navigation)
