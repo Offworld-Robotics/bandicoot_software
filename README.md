@@ -102,18 +102,18 @@ In the src/simple_motion_controller.cpp file line 82, you will be able to modify
 ### Getting Started on Learning the Theory
 Go through the following resources in order and you will understand the basics behind how everything works. A detailed pdf report outlining everything is currently in the works. All of these resources will take a week or two to get through. The first two youtube links are very hands on, and are very highly recommended!
 
-1. Exploring ROS using a 2 wheeled Robot https://www.youtube.com/playlist?list=PLK0b4e05LnzY2I4sXWTOA4_82cMh6tL-5
-2. ROS Navigation in 5 days: https://www.youtube.com/playlist?list=PLiiw0aSVHcAkF26qR6Q7x6RlLAL6-vuF3 
-3. A website which goes through implementing such a navigation stack from scratch: http://moorerobots.com/blog
-4. ROS Localisation and Navigation with a Skid-Steer Robot: https://www.haidynmcleod.com/ros-skid-steer-navigation
-5. move_base tuning guide: http://kaiyuzheng.me/documents/navguide.pdf
+1. [Exploring ROS using a 2 wheeled Robot](https://www.youtube.com/playlist?)list=PLK0b4e05LnzY2I4sXWTOA4_82cMh6tL-5
+2. [ROS Navigation in 5 days](https://www.youtube.com/playlist?list=PLiiw0aSVHcAkF26qR6Q7x6RlLAL6-vuF3) 
+3. [A website which goes through implementing such a navigation stack from scratch](http://moorerobots.com/blog)
+4. [ROS Localisation and Navigation with a Skid-Steer Robot](https://www.haidynmcleod.com/ros-skid-steer-navigation)
+5. [move_base tuning guide](http://kaiyuzheng.me/documents/navguide.pdf)
 
 Also be sure to check out the ros wiki for the following!
-1. Gmapping: http://wiki.ros.org/gmapping
-2. AMCL: http://wiki.ros.org/amcl
-3. ROS Navigation Stack http://wiki.ros.org/navigation
+1. [Gmapping](http://wiki.ros.org/gmapping)
+2. [AMCL](http://wiki.ros.org/amcl)
+3. [ROS Navigation Stack](http://wiki.ros.org/navigation)
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
