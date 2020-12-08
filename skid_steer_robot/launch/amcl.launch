@@ -13,6 +13,7 @@ To improve the accuracy of the amcl, you need to have a good map, and a lot of p
   <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster"
       args="0 0 0 0 0 0 map odom 100"/>
 
+  <node pkg="rviz" type="rviz" name="rviz"></node>
   <!-- Localization -->
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
     

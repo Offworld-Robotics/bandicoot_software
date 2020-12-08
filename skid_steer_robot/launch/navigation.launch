@@ -60,12 +60,13 @@
     <remap from="cmd_vel" to="cmd_vel"/>
     <remap from="odom" to="odom"/>
     <remap from="scan" to="owr_rover/laser/scan"/>
-    <!--  <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="1.0"/>
-    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/> -->
+   <!-- <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="1.0"/>
+    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/>-->
 
     <param name="base_global_planner" type="string" value="global_planner/GlobalPlanner"/> 
-    <!-- <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" /> -->
-    <!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> --> 
+    <param name="global_planner/GlobalPlanner/default_tolerance" value="1.0"/> 
+    <!--<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />-->
+   <!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> --> 
     <param name="base_local_planner" value="eband_local_planner/EBandPlannerROS"/> 
     <param name="controller_frequency" value="5.0" />
     <param name="planner_frequency" value="10.0" />

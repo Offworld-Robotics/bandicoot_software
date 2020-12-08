@@ -10,8 +10,8 @@ project(skid_steer_robot)
 find_package(catkin REQUIRED COMPONENTS
   gazebo_msgs
   geometry_msgs
-  gmapping_pkg
   move_base
+  gmapping
   move_base_msgs
   roscpp
   rviz
@@ -223,3 +223,7 @@ include_directories(
 add_executable(goal src/simple_motion_controller.cpp)
 add_dependencies(goal ${catkin_EXPORTED_TARGETS})
 target_link_libraries(goal ${catkin_LIBRARIES})
+
+add_executable(main  src/main.cpp src/motion_controller.cpp include/motion_controller.hpp)
+add_dependencies(main ${catkin_EXPORTED_TARGETS})
+target_link_libraries(main ${catkin_LIBRARIES})

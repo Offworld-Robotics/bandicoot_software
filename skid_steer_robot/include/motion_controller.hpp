@@ -13,6 +13,14 @@ using namespace std;
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
+struct pose
+{
+    float x;
+    float y;
+    float w;
+};
+
+
 class MotionController
 {
     public:
@@ -20,13 +28,27 @@ class MotionController
         /**
          * @brief The Class constructor. Initialises the MoveBaseClient functionality provided by the actionlib package
          **/
-        MotionController();
+        MotionController() : ac("move_base",true) 
+        {
+            ROS_INFO("Waiting for action server to start.");
+            ac.waitForServer();
+            ROS_INFO("Action server started.");
+        }
 
         /**
          * @brief The Destructor.
          **/
         ~MotionController(){};
         
+        void done_callback(const actionlib::SimpleClientGoalState& state, const move_base_msgs::MoveBaseResultConstPtr& result);
+
+        // Called once when the goal becomes active
+        void active_callback();
+
+        // Called every time feedback is received for the goal
+        // It generally just sends feedback about its pose etc
+        void feedback_callback(const move_base_msgs::MoveBaseFeedbackConstPtr& feedback);
+
         /**
          * @brief Sets a single goal. If you want to set multiple goals so that the robot moves to the next goal after it reaches the current goal 
          * @param x The x coordinate of the goal in the specified frame
@@ -50,18 +72,18 @@ class MotionController
          * @param frame What frame is the goal being set? The robots frame of the map frame? This will either be something similar to "map" or "base_link" depending on how the map is setup and how the urdf robot frame is set up
          * @return Returns the position of the goal paramters provided inside the wayPoints vector for later reference if required
          **/
-        // int robot_set_way_point(double x, double y, double w, string frame);
+        int robot_set_way_point(double x, double y, double w, string frame);
 
-        // /**
-        //  * @brief Returns the wayPoints vector
-        //  **/
-        // vector <move_base_msgs::MoveBaseGoal> robot_get_way_points();
+        /**
+         * @brief Returns the wayPoints vector
+         **/
+        vector <move_base_msgs::MoveBaseGoal> robot_get_way_points();
 
-        // /**
-        //  * @brief Removes a goal within the wayPoints vector according to the int provided
-        //  * @param The goal at position n will be removed from the wayPoints vector
-        //  **/
-        // void robot_remove_way_point(int n);
+        /**
+         * @brief Removes a goal within the wayPoints vector according to the int provided
+         * @param The goal at position n will be removed from the wayPoints vector
+         **/
+        void robot_remove_way_point(int n);
 
         /**
          * @brief Executes the command to move the robot to the specified goal.
@@ -74,15 +96,21 @@ class MotionController
          **/
         bool robot_execute_single_goal();
 
-        // /**
-        //  * @brief Moves the robot from one wayPoint to the next based on the goals stores inside the wayPoints vector
-        //  **/
-        // bool robot_execute_way_points();
+        /**
+         * @brief Moves the robot from one wayPoint to the next based on the goals stores inside the wayPoints vector
+         **/
+        bool robot_execute_way_points();
+
+        void cancel_current_goal();
+
+        void cancel_all_goals();
 
     private:
         //Variables
-        //MoveBaseClient ac = new MoveBaseClient("move_base", true);
-        MoveBaseClient* ac;
-        move_base_msgs::MoveBaseGoal goal;
-       // vector <move_base_msgs::MoveBaseGoal> wayPoints;
+        MoveBaseClient ac;
+        move_base_msgs::MoveBaseGoal current_goal;
+        struct pose current_pose;
+        float distance_from_goal;
+        string finished_state;
+        vector <move_base_msgs::MoveBaseGoal> wayPoints;
 };
